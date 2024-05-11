@@ -1,3 +1,6 @@
+import Feed from '@components/Feed'
+
+
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
@@ -10,7 +13,7 @@ const Home = () => {
             support, and collaboration as you create and share workout routines 
             to inspire others on their fitness journey
         </p>
-        {/* FEED */}
+        <Feed />
     </section>
   )
 }
