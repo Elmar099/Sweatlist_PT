@@ -6,19 +6,18 @@ import {useState, useEffect} from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
 
- { /* useEffect(() => {
-    const setProviders = async () => {
-        const ress = await getProviders();
-
-        setProviders(ress);
+  useEffect(() => {
+    const setUpProviders = async () => {
+      const response = await getProviders();
+      setProviders(response);
     }
-    setProviders();
-  }, []) */}
+    setUpProviders();
+  }, []);
  
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -28,11 +27,12 @@ const Nav = () => {
             height={77} className='object-contain' />
         <p className='logo_text'>Sweatlist</p>
         </Link>
+
         {/* Desktop Nav*/}
         <div className='sm:flex hidden'>
-            {isUserLoggedIn ? (
+            {session?.user ? (
                 <div className='flex gap-3 md:gap-5'>
-                    <Link href="/create-prompt"
+                    <Link href="/create-routine"
                     className='black_btn'>
                         Create Sweatlist
                     </Link>
@@ -43,7 +43,8 @@ const Nav = () => {
 
                     <Link href="/profile">
                         <Image
-                            src="/assets/assets/images/bus_logo_new.svg"
+                            src={session?.user.image} 
+                            className='rounded-full'
                             width={57}
                             height={57}
                             
@@ -53,7 +54,7 @@ const Nav = () => {
                 </div>
             ): (
                 <>
-                    {/*{providers && 
+                    {providers && 
                     Object.values(providers).map((provider)  => (
                         <button 
                         type='button'
@@ -61,18 +62,18 @@ const Nav = () => {
                         onClick={() => signIn(provider.id)}
                         className='black_btn'
                         >
-                            Sign in
+                            Log in
                         </button>
-                    ))} */}
+                    ))} 
                 </>
             )}
         </div>
         {/* Mobile Nav*/}
         <div className='sm:hidden flex relative'>
-            {isUserLoggedIn ? (
+            {session?.user ? (
                 <div className='flex'>
                     <Image 
-                    src="/assets/assets/images/sl_logo.svg"
+                    src={session?.user.image} 
                     width={37}
                     height={37}
                     className='rounded-full'
@@ -87,7 +88,7 @@ const Nav = () => {
                             onClick={() => setToggleDropdown(false)}>
                                 My Profile
                             </Link>
-                            <Link href="/create-sweatlist"
+                            <Link href="/create-routine"
                             className='dropdown_link'
                             onClick={() => setToggleDropdown(false)}>
                                 Create Sweatlist
@@ -100,7 +101,7 @@ const Nav = () => {
                             }}
                             className='mt-5 w-full black_btn'
                             >
-                                Sign Out
+                                Log Out
 
                             </button>
                         </div>
@@ -108,21 +109,22 @@ const Nav = () => {
                 </div>
             ): (
                 <>
-                    {/*{providers && 
-                    Object.values(providers).map((provider)  => (
-                        <button 
-                        type='button'
-                        key={provider.name}
-                        onClick={() => signIn(provider.id)}
-                        className='black_btn'
-                        >
-                            Sign in
-                        </button>
-                    ))} */}
-                </>
-            )}
-
-        </div>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  type='button'
+                  key={provider.name}
+                  onClick={() => {
+                    signIn(provider.id);
+                  }}
+                  className='black_btn'
+                >
+                  Log in
+                </button>
+              ))}
+          </>
+        )}
+      </div>
     </nav>
   )
 }
