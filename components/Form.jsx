@@ -15,7 +15,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
         onSubmit={handleSubmit}
         className='mt-10  w-full max-w-2xl flex flex-col gap-7 glassmorphism'>
           <label>
-            <span className='font-satoshi font-semibold text-base text-gray-500'>
+            <span className='font-chillax font-semibold text-base text-gray-500'>
               Your Personal Routine
             </span>
             <textarea 
@@ -28,7 +28,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
             />
           </label>
           <label>
-            <span className='font-satoshi font-semibold text-base text-gray-500'>
+            <span className='font-chillax font-semibold text-base text-gray-500'>
               Group {` `}
               <span className='font-normal'>(#arms, #legs, #shoulders)</span>
             </span>

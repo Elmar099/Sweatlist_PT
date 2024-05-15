@@ -1,17 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=chillax@200,300,400,500,600,700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
 
 .main {
   width: 100vw;
   min-height: 100vh;
-  background-color: rgb(19, 19, 19);
+  background-color: rgb(27, 89, 139);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -66,16 +63,17 @@
 
 /* Tailwind Styles */
 
+
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
 .black_btn {
-  @apply rounded-full bg-white py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full bg-white py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-chillax flex items-center justify-center;
 }
 
 .outline_btn {
-  @apply rounded-full  bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full  bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-chillax flex items-center justify-center;
 }
 
 .head_text {
@@ -83,7 +81,7 @@
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-cyan-500 via-orange-600 to-orange-500 bg-clip-text text-transparent;
 }
 
 .green_gradient {
@@ -91,7 +89,7 @@
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-orange-500 to-orange-300 bg-clip-text text-transparent;
 }
 
 .desc {
@@ -99,7 +97,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-chillax pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
@@ -130,7 +128,7 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg text-white tracking-wide;
+  @apply max-sm:hidden font-chillax font-semibold text-lg text-white tracking-wide;
 }
 
 .dropdown {
@@ -138,12 +136,12 @@
 }
 
 .dropdown_link {
-  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+  @apply text-sm font-chillax text-gray-700 hover:text-gray-500 font-medium;
 }
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-black bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  @apply flex-1 cursor-pointer break-inside-avoid rounded-lg border border-gray-300 bg-white bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
 }
 
 .flex-center {

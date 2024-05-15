@@ -33,7 +33,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           />
 
           <div className='flex flex-col'>
-            <h3 className='font-satoshi font-semibold text-gray-400'>
+            <h3 className='font-chillax font-semibold text-slate-600'>
               {post.creator.username}
             </h3>
             <p className='font-inter text-sm text-gray-600'>
@@ -43,24 +43,24 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-white'>{post.prompt}</p>
+      <p className='my-4 font-chillax text-sm text-black'>{post.prompt}</p>
       <p
-        className='font-inter text-sm text-white cursor-pointer'
+        className='font-inter text-sm text-black cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
       >
-        #{post.tag}
+        {post.tag}
       </p>
 
       {session?.user.id === post.creator._id && pathName === "/profile" && (
-        <div className='mt-5 flex-center gap-4 border-t border-gray-100 pt-3'>
+        <div className='mt-5 flex-center gap-4 border-t border-gray-200 pt-3'>
           <p
-            className='font-inter text-sm text-white cursor-pointer'
+            className='font-inter text-sm text-white bg-black  px-5 py-2 rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out'
             onClick={handleEdit}
           >
             Edit
           </p>
           <p
-            className='font-inter text-sm text-white cursor-pointer'
+            className='font-inter text-sm text-white bg-black px-5 py-2 rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out'
             onClick={handleDelete}
           >
             Delete

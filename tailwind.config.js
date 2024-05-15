@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
+        chillax: ['Chillax', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
       colors: {

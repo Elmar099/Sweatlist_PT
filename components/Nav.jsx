@@ -25,11 +25,14 @@ const Nav = () => {
             <Image src="assets/assets/images/bus_logo_new.svg"
             alt='Sweatlist logo' width={77}
             height={77} className='object-contain' />
-        <p className='logo_text'>Sweatlist</p>
+        <p className='logo_text'>SWEATLIST</p>
         </Link>
 
         {/* Desktop Nav*/}
         <div className='sm:flex hidden'>
+            <Link href="/about-us" className='black_btn mr-5'>
+                About us
+            </Link>
             {session?.user ? (
                 <div className='flex gap-3 md:gap-5'>
                     <Link href="/create-routine"
@@ -51,6 +54,7 @@ const Nav = () => {
                             alt='Profile'
                         />
                     </Link>
+                
                 </div>
             ): (
                 <>
@@ -92,6 +96,9 @@ const Nav = () => {
                             className='dropdown_link'
                             onClick={() => setToggleDropdown(false)}>
                                 Create Sweatlist
+                            </Link>
+                            <Link href="/about-us" className='dropdown_link'>
+                                About us
                             </Link>
                             <button
                             type='button'
