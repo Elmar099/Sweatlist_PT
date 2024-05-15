@@ -4,7 +4,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
-        <span className='blue_gradient'>{type} Post</span></h1>
+        <span className='blue_gradient'>{type} Routine</span></h1>
         <p className='desc text-left max-w-md'>
           {type} and share incredible workout routines with the world, 
           inspiring others to reach new heights of health and strength. 

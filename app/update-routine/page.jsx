@@ -1,34 +1,48 @@
 "use client";
 
-import { useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-
+import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Form from '@components/Form'
 
-const CreateRoutine = () => {
+//Change this page later
+const EditRoutine = () => {
     const router = useRouter();
-    const { data: session} = useSession()
+    const searchParams = useSearchParams();
+    const promptId = searchParams.get('id')
     const [submitting, setSubmitting] = useState(false);
     //this is the prompt stuff change this later to full routine like back 
     const [post, setPost] = useState({
         prompt: '',
         tag: '',
     });
+
+    useEffect(() => {
+        const getPromptDetails = async () => {
+            const response = await fetch(`/api/prompt/${promptId}`)
+            const data = await response.json();
+
+            setPost({
+                prompt: data.prompt,
+                tag: data.tag,
+            })
+        }
+        if(prompt) getPromptDetails();
+    }, [promptId])
   
-const createRoutine = async (e) => {
+const updateRoutine = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
+
+    if(!promptId) return alert('Routine id not found')
     //this is the post request need to change this to add more options later
     try {
-        const response = await fetch('/api/prompt/new', 
+        const response = await fetch(`/api/prompt/${promptId}`, 
             {
                 //CHANGE LATER IMPORTANTTT
-                method: 'POST',
+                method: 'PATCH',
                 body: JSON.stringify({
                     prompt: post.prompt,
-                    userId: session?.user.id,
                     tag: post.tag
                 })
             })
@@ -44,13 +58,13 @@ const createRoutine = async (e) => {
 
 return (
     <Form 
-    type="Create"
+    type="Edit"
     post={post}
     setPost={setPost}
     submitting={submitting}
-    handleSubmit={createRoutine}
+    handleSubmit={updateRoutine}
     />
   )
 }
 
-export default CreateRoutine
+export default EditRoutine
