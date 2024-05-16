@@ -15,7 +15,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
         onSubmit={handleSubmit}
         className='mt-10  w-full max-w-2xl flex flex-col gap-7 glassmorphism'>
           <label>
-            <span className='font-chillax font-semibold text-base text-gray-500'>
+            <span className='font-chillax font-semibold text-base text-gray-300'>
               Your Personal Routine
             </span>
             <textarea 
@@ -28,7 +28,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
             />
           </label>
           <label>
-            <span className='font-chillax font-semibold text-base text-gray-500'>
+            <span className='font-chillax font-semibold text-base text-gray-300'>
               Group {` `}
               <span className='font-normal'>(#arms, #legs, #shoulders)</span>
             </span>
@@ -43,12 +43,12 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
           </label>
         {/* add hover effects to this button*/}
                 <div className='flex-end mx-3 mb-5 gap-4'>
-                  <Link href='/' className='text-white text-sm py-3 px-7 rounded-full bg-blue-600'>Cancel</Link>
+                  <Link href='/' className='text-black text-sm border-2 hover:bg-black hover:text-white  py-3 px-7 rounded-full bg-white'>Cancel</Link>
                 
                 <button 
                 type='submit'
                 disabled={submitting}
-                className='px-7 py-3 text-sm bg-primary-orange rounded-full text-white'>
+                className='text-sky-400 text-sm border-2 hover:bg-black hover:text-white  py-3 px-7 rounded-full bg-black'>
                   {submitting ? `${type}...` : type}
                 </button>
                 </div>

@@ -7,7 +7,7 @@ const Home = () => {
         <h1 className="head_text text-center ">
             Web Personal Trainer
             <br className="max-md:hidden" />
-            <span className="blue_gradient text-center">Discover & Share Workouts </span>
+            <span className="text-sky-400 text-center">Discover & Share Workouts </span>
         </h1>
         <p className="desc text-center">Join our vibrant fitness community and discover a world of motivation, 
             support, and collaboration as you create and share workout routines 

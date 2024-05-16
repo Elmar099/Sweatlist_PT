@@ -21,16 +21,18 @@ const Nav = () => {
  
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
+        <div className='flex gap-2 flex-center'>
         <Link href='/' className='flex gap-2 flex-center'>
             <Image src="assets/assets/images/bus_logo_new.svg"
             alt='Sweatlist logo' width={77}
-            height={77} className='object-contain' />
-        <p className='logo_text'>SWEATLIST</p>
+            height={77} className='object-contain bg-white rounded-full hover:scale-110 transition-transform duration-300 ease-in-out' />
+            <p className='logo_text'><span className='text-sky-400'>SWEAT</span>LIST</p>
         </Link>
+        </div>
 
         {/* Desktop Nav*/}
-        <div className='sm:flex hidden'>
-            <Link href="/about-us" className='black_btn mr-5'>
+        <div className='sm:flex hidden gap-5'>
+            <Link href="/about-us" className='black_btn'>
                 About us
             </Link>
             {session?.user ? (
@@ -43,20 +45,16 @@ const Nav = () => {
                     className='outline_btn'>
                         Log out
                     </button>
-
                     <Link href="/profile">
                         <Image
                             src={session?.user.image} 
-                            className='rounded-full'
+                            className='rounded-full border-2 border-sky-400'
                             width={57}
                             height={57}
-                            
-                            alt='Profile'
-                        />
+                            alt='Profile' />
                     </Link>
-                
                 </div>
-            ): (
+            ):(
                 <>
                     {providers && 
                     Object.values(providers).map((provider)  => (
@@ -64,7 +62,7 @@ const Nav = () => {
                         type='button'
                         key={provider.name}
                         onClick={() => signIn(provider.id)}
-                        className='black_btn'
+                        className='outline_btn'
                         >
                             Log in
                         </button>

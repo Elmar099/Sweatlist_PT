@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        chillax: ['Chillax', 'sans-serif'],
+        chillax: ['general-sans', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
