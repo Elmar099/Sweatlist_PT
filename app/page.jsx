@@ -3,7 +3,7 @@ import Feed from '@components/Feed'
 
 const Home = () => {
   return (
-    <section className="w-full flex-center flex-col font-chillax">
+    <section className="w-full flex-center flex-col font-chillax mt-20">
         <h1 className="head_text text-center ">
             Web Personal Trainer
             <br className="max-md:hidden" />
@@ -13,7 +13,7 @@ const Home = () => {
             support, and collaboration as you create and share workout routines 
             to inspire others on their fitness journey
         </p>
-        <Feed />
+      
     </section>
   )
 }
