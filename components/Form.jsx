@@ -5,7 +5,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
     <section className='w-full max-w-full flex-center flex-col'>
       <h1 className='head_text text-left'>
         <span className='blue_gradient'>{type} Routine</span></h1>
-        <p className='desc text-left max-w-md'>
+        <p className='desc text-center max-w-md'>
           {type} and share incredible workout routines with the world, 
           inspiring others to reach new heights of health and strength. 
           Join our vibrant community and ignite the fitness passion within!  
@@ -43,12 +43,12 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
           </label>
         {/* add hover effects to this button*/}
                 <div className='flex-end mx-3 mb-5 gap-4'>
-                  <Link href='/' className='text-black text-sm border-2 hover:bg-black hover:text-white  py-3 px-7 rounded-full bg-white'>Cancel</Link>
+                  <Link href='/' className='text-black text-sm border-2 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out hover:bg-black hover:text-white  py-3 px-7 rounded-full bg-white'>Cancel</Link>
                 
                 <button 
                 type='submit'
                 disabled={submitting}
-                className='text-white text-sm border-2 border-sky-400 hover:bg-black hover:text-sky-400  py-3 px-7 rounded-full bg-black'>
+                className='text-white text-sm border-2 bg-sky-400 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out hover:bg-black hover:text-sky-400  py-3 px-7 rounded-full'>
                   {submitting ? `${type}...` : type}
                 </button>
                 </div>
